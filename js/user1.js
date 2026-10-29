@@ -1,4 +1,7 @@
 
+import supabase from "./credentail.js";
+console.log(supabase);
+
 
 
 
