@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liqa — Mira</title>
+    <link rel="stylesheet" href="user2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="app">
+        <aside class="sidebar">
+            <header class="side-top"><a class="logo" href="#">L<span>iqa</span></a><button class="round-icon"
+                    aria-label="New chat">＋</button></header>
+            <label class="search"><span>⌕</span><input type="search" placeholder="Search or start a new chat"
+                    aria-label="Search chats"></label>
+            <div class="filter-row"><span class="filter active">All</span><span class="filter">Unread</span><span
+                    class="filter">Favorites</span></div>
+            <div class="chat-list">
+                <a class="chat-item selected" href="#">
+                    <div class="avatar contact">M<i></i></div>
+                    <div class="chat-info">
+                        <div class="chat-line"><strong>Mira</strong><time>10:26 AM</time></div>
+                        <div class="preview-line"><span>Socha tumse baat kar loon 😄</span><b class="unread">2</b></div>
+                    </div>
+                </a>
+                <a class="chat-item" href="#">
+                    <div class="avatar avatar-two">S</div>
+                    <div class="chat-info">
+                        <div class="chat-line"><strong>Sana</strong><time>Yesterday</time></div>
+                        <div class="preview-line"><span>Voice message</span></div>
+                    </div>
+                </a>
+                <a class="chat-item" href="#">
+                    <div class="avatar avatar-three">F</div>
+                    <div class="chat-info">
+                        <div class="chat-line"><strong>Family Group</strong><time>Yesterday</time></div>
+                        <div class="preview-line"><span>Ammi: ghar kab aa rahe ho?</span></div>
+                    </div>
+                </a>
+                <a class="chat-item" href="#">
+                    <div class="avatar avatar-four">A</div>
+                    <div class="chat-info">
+                        <div class="chat-line"><strong>Ali</strong><time>Monday</time></div>
+                        <div class="preview-line"><span>Okay, phir milte hain.</span></div>
+                    </div>
+                </a>
+            </div>
+            <footer class="side-footer">🔒 Your chats stay yours</footer>
+        </aside>
+        <section class="conversation">
+            <header class="chat-header">
+                <div class="contact-heading">
+                    <div class="avatar contact large">M<i></i></div>
+                    <div>
+                        <h1>Mira</h1>
+                        <p><span class="online"></span> online</p>
+                    </div>
+                </div>
+                <div class="header-buttons"><button class="header-icon" aria-label="Video call">▣</button><button
+                        class="header-icon" aria-label="Voice call">☎</button><button class="header-icon"
+                        aria-label="More options">⋮</button></div>
+            </header>
+            <div class="messages" id="messages">
+                <div class="date-pill">TODAY</div>
+                <div class="encryption-note">🔒 Messages are private between you and Mira.</div>
+                <div class="message-row sent">
+                    <div class="bubble-wrap">
+                        <div class="bubble">Assalam-o-alaikum! 👋</div><span class="time">10:22 AM <b
+                                class="ticks">✓✓</b></span>
+                    </div>
+                </div>
+                <div class="message-row received">
+                    <div class="mini-avatar">M</div>
+                    <div class="bubble-wrap">
+                        <div class="bubble">Walaikum-assalam! Kya haal hai? 😊</div><span class="time">10:23 AM</span>
+                    </div>
+                </div>
+                <div class="message-row sent">
+                    <div class="bubble-wrap">
+                        <div class="bubble">Main theek hoon. Tum sunao?</div><span class="time">10:24 AM <b
+                                class="ticks">✓✓</b></span>
+                    </div>
+                </div>
+                <div class="message-row received">
+                    <div class="mini-avatar">M</div>
+                    <div class="bubble-wrap">
+                        <div class="bubble">Sab set! Aaj kya plan hai?</div><span class="time">10:25 AM</span>
+                    </div>
+                </div>
+                <div class="message-row sent">
+                    <div class="bubble-wrap">
+                        <div class="bubble">Socha tumse baat kar loon 😄</div><span class="time">10:26 AM <b
+                                class="ticks">✓✓</b></span>
+                    </div>
+                </div>
+            </div>
+            
+      <footer class="composer-area">
+        <div class="composer">
+          <button class="compose-icon" type="button" aria-label="Add attachment">＋</button>
+
+          <button class="compose-icon" type="button" aria-label="Emoji">☺</button>
+
+          <input type="text" id="message-input" class="message-input" placeholder="Type a message..." aria-label="Type a message" />
+
+          <button class="mic" id="sender-btn" type="button" aria-label="Voice message"><i class="fa-solid fa-circle-arrow-up"></i></button>
+        </div>
+
+        <p class="footer-hint">
+          Liqa <span>•</span> simple conversations, closer connections
+        </p>
+      </footer>
+        </section>
+    </main>
+
+
+    <script type="module" src="js/user2.js"></script>
+</body>
+
+</html>
