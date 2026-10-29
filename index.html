@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#075e54">
+    <title>Welcome to Liqa</title>
+    <style>
+        :root {
+            --green: #075e54;
+            --dark: #064c44;
+            --mint: #d9fdd3;
+            --cream: #f7f5ef;
+            --ink: #20312b;
+            --muted: #718078
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background: radial-gradient(circle at 12% 18%, #25d3661f, transparent 28%), radial-gradient(circle at 88% 82%, #075e541a, transparent 30%), var(--cream)
+        }
+
+        header {
+            min-height: 76px;
+            padding: 18px clamp(20px, 6vw, 84px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            background: #ffffffe0;
+            border-bottom: 1px solid #075e5414
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--green);
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -.8px
+        }
+
+        .mark {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 15px 15px 15px 5px;
+            color: white;
+            background: var(--green);
+            font-size: 22px;
+            box-shadow: 0 7px 18px #075e542e
+        }
+
+        .top-note {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600
+        }
+
+        main {
+            width: min(1080px, 100%);
+            margin: auto;
+            padding: 64px 24px 72px;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: clamp(36px, 7vw, 88px)
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            color: var(--green);
+            background: #e4f4e8;
+            border: 1px solid #d4ebd9;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .7px;
+            text-transform: uppercase
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #25d366;
+            border-radius: 50%
+        }
+
+        h1 {
+            margin: 22px 0 18px;
+            color: var(--dark);
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 1.04;
+            letter-spacing: -2.8px
+        }
+
+        h1 span {
+            color: #25a66a
+        }
+
+        .intro {
+            max-width: 500px;
+            margin: 0;
+            color: #66756d;
+            font-size: 18px;
+            line-height: 1.75
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 32px;
+            max-width: 500px
+        }
+
+        .user-link {
+            min-height: 76px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--ink);
+            background: white;
+            border: 1px solid #e4e9e4;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px #1e3c0d;
+            box-shadow: 0 8px 24px #1e3c0d0d;
+            transition: transform .18s, border-color .18s, box-shadow .18s
+        }
+
+        .user-link:hover {
+            transform: translateY(-3px);
+            border-color: #a9d9b6;
+            box-shadow: 0 14px 30px #1e3c1717
+        }
+
+        .avatar {
+            width: 43px;
+            height: 43px;
+            flex: 0 0 43px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: var(--green);
+            background: var(--mint);
+            font-size: 17px;
+            font-weight: 800
+        }
+
+        .user-copy {
+            min-width: 0
+        }
+
+        .user-copy strong {
+            display: block;
+            font-size: 15px
+        }
+
+        .user-copy small {
+            display: block;
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .arrow {
+            margin-left: auto;
+            color: var(--green);
+            font-size: 22px
+        }
+
+        .note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .preview {
+            position: relative;
+            overflow: hidden;
+            background: #efeae2;
+            border: 8px solid white;
+            border-radius: 30px;
+            box-shadow: 0 28px 70px #193f3029;
+            transform: rotate(1.5deg)
+        }
+
+        .chat-head {
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: white;
+            background: var(--green)
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #d8eee0;
+            color: var(--green);
+            font-weight: 800
+        }
+
+        .chat-head strong {
+            display: block;
+            font-size: 15px
+        }
+
+        .chat-head small {
+            display: block;
+            margin-top: 4px;
+            color: #c5e5d7;
+            font-size: 12px
+        }
+
+        .chat-body {
+            min-height: 310px;
+            padding: 25px 17px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-image: radial-gradient(#075e540e 1px, transparent 1px);
+            background-size: 18px 18px
+        }
+
+        .day {
+            align-self: center;
+            padding: 7px 12px;
+            color: #6d7c73;
+            background: #fffdf7;
+            border-radius: 9px;
+            font-size: 11px
+        }
+
+        .bubble {
+            max-width: 84%;
+            padding: 12px 13px 8px;
+            border-radius: 13px;
+            font-size: 14px;
+            line-height: 1.5;
+            box-shadow: 0 1px 1px #0000000d
+        }
+
+        .incoming {
+            align-self: flex-start;
+            background: white;
+            border-top-left-radius: 4px
+        }
+
+        .outgoing {
+            align-self: flex-end;
+            background: var(--mint);
+            border-top-right-radius: 4px
+        }
+
+        .time {
+            display: block;
+            margin-top: 5px;
+            color: #718078;
+            font-size: 10px;
+            text-align: right
+        }
+
+        .compose {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px;
+            background: #f8f8f6
+        }
+
+        .fake-input {
+            flex: 1;
+            padding: 13px 15px;
+            color: #87918a;
+            background: white;
+            border-radius: 24px;
+            font-size: 13px
+        }
+
+        .send {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: white;
+            background: var(--green);
+            font-size: 17px
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #7b8981;
+            font-size: 12px
+        }
+
+        footer strong {
+            color: var(--green)
+        }
+
+        @media(max-width:760px) {
+            header {
+                min-height: 68px
+            }
+
+            .top-note {
+                display: none
+            }
+
+            main {
+                grid-template-columns: 1fr;
+                padding-top: 46px;
+                gap: 48px
+            }
+
+            h1 {
+                letter-spacing: -1.8px
+            }
+
+            .intro {
+                font-size: 16px
+            }
+
+            .preview {
+                width: min(420px, 100%);
+                margin: auto
+            }
+
+            .chat-body {
+                min-height: 260px
+            }
+        }
+
+        @media(max-width:430px) {
+            .actions {
+                grid-template-columns: 1fr
+            }
+
+            .user-link {
+                min-height: 70px
+            }
+
+            main {
+                padding-inline: 18px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand"><span class="mark" aria-hidden="true">↗</span><span>Liqa</span></div>
+        <div class="top-note">Simple conversations, closer connections</div>
+    </header>
+    <main>
+        <section>
+            <div class="eyebrow"><span class="dot"></span>Your space to connect</div>
+            <h1>Good chats.<br>Closer <span>connections.</span></h1>
+            <p class="intro">Welcome to Liqa — a simple, friendly place for conversations. Choose a profile below to
+                open its chat screen.</p>
+            <div class="actions">
+                <a class="user-link" href="./user1.html"><span class="avatar">1</span><span
+                        class="user-copy"><strong>Open User 1</strong><small>Chat as User 1</small></span><span
+                        class="arrow">›</span></a>
+                <a class="user-link" href="./user2.html"><span class="avatar">2</span><span
+                        class="user-copy"><strong>Open User 2</strong><small>Chat as User 2</small></span><span
+                        class="arrow">›</span></a>
+            </div>
+            <div class="note"><span aria-hidden="true">🔒</span><span>Pick either profile to explore the Liqa chat
+                    UI.</span></div>
+        </section>
+        <section aria-label="Preview of a Liqa conversation">
+            <div class="preview">
+                <div class="chat-head">
+                    <div class="chat-avatar">L</div>
+                    <div><strong>Liqa Chat</strong><small>Making room for good conversations</small></div>
+                </div>
+                <div class="chat-body">
+                    <div class="day">TODAY</div>
+                    <div class="bubble incoming">Hey! Welcome to Liqa 👋<span class="time">10:24</span></div>
+                    <div class="bubble outgoing">This looks nice and simple!<span class="time">10:25 ✓✓</span></div>
+                    <div class="bubble incoming">That's the idea — conversations made easy. 💚<span
+                            class="time">10:25</span></div>
+                </div>
+                <div class="compose">
+                    <div class="fake-input">Type a message...</div>
+                    <div class="send" aria-hidden="true">➤</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer><strong>Liqa</strong> <span aria-hidden="true">•</span> Simple conversations, closer connections</footer>
+</body>
+
+</html>
