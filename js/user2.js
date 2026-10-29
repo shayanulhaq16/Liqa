@@ -19,15 +19,20 @@ const channel = supabase
         },
         (payload) => {
 
-            if (payload.new.sender_id === "user1"){
+            if (payload.new.sender_id === "user1") {
 
-                console.log('MESSAGE RECEIVED:', payload.new);
-                
+                const date = new Date(payload.new.created_at);
+                const time = date.toLocaleTimeString("en-PK", {
+                    hour: "numeric",
+                    minute: "2-digit",
+                    hour12: true
+                });
+
                 chat.innerHTML += `
                 <div class="message-row received">
                 <div class="mini-avatar">A</div>
                 <div class="bubble-wrap">
-                <div class="bubble">${payload.new.msg}</div><span class="time">10:26 AM</span>
+                <div class="bubble">${payload.new.msg}</div><span class="time">${time}</span>
                 </div>
                 </div>`
             }
