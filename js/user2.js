@@ -1,4 +1,4 @@
-
+import supabase from "./credentail.js";
 
 
 
@@ -12,7 +12,7 @@ const chat = document.getElementById("messages");
 
 
 
-const message_sender = () => {
+const message_sender = async () => {
         let now = new Date();
     let hour = now.getHours();
     let minutes = now.getMinutes();
@@ -28,6 +28,20 @@ const message_sender = () => {
 
 
     if (message.value.trim() !== "") {
+
+
+        
+        let obj = {
+            sender_id: "user2",
+            receiver_id: "user1",
+            msg: message.value.trim()
+        }
+
+        const { error } = await supabase
+            .from('messages')
+            .insert(obj)
+
+            console.log(error);
 
 
         chat.innerHTML += `
