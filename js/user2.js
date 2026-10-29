@@ -8,29 +8,54 @@ const sender_btn = document.getElementById("sender-btn");
 const chat = document.getElementById("messages");
 
 
+const channel = supabase
+    .channel('chat-test')
+    .on(
+        'postgres_changes',
+        {
+            event: 'INSERT',
+            schema: 'public',
+            table: 'messages'
+        },
+        (payload) => {
 
+            if (payload.new.sender_id === "user1"){
+
+                console.log('MESSAGE RECEIVED:', payload.new);
+                
+                chat.innerHTML += `
+                <div class="message-row received">
+                <div class="mini-avatar">A</div>
+                <div class="bubble-wrap">
+                <div class="bubble">${payload.new.msg}</div><span class="time">10:26 AM</span>
+                </div>
+                </div>`
+            }
+        }
+    )
+    .subscribe();
 
 
 
 const message_sender = async () => {
-        let now = new Date();
+    let now = new Date();
     let hour = now.getHours();
     let minutes = now.getMinutes();
 
     let time = `${hour}:${minutes} AM`;
-    
+
     if (now.getHours() > 12) {
         hour -= 12;
         time = `${hour}:${minutes} PM`;
     }
 
-    
+
 
 
     if (message.value.trim() !== "") {
 
 
-        
+
         let obj = {
             sender_id: "user2",
             receiver_id: "user1",
@@ -41,7 +66,7 @@ const message_sender = async () => {
             .from('messages')
             .insert(obj)
 
-            console.log(error);
+        console.log(error);
 
 
         chat.innerHTML += `
@@ -61,8 +86,8 @@ const message_sender = async () => {
 
 
 sender_btn.addEventListener("click", message_sender);
-document.addEventListener("keydown", (event)=>{
-    if(event.key === "Enter"){
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
         message_sender();
     }
 });

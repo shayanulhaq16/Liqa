@@ -21,15 +21,17 @@ const channel = supabase
             table: 'messages'
         },
         (payload) => {
-            console.log('MESSAGE RECEIVED:', payload.new);
+            if (payload.new.sender_id === "user2") {
+                console.log('MESSAGE RECEIVED:', payload.new);
 
-            chat.innerHTML += `
+                chat.innerHTML += `
             <div class="message-row received">
           <div class="mini-avatar">A</div>
           <div class="bubble-wrap">
             <div class="bubble">${payload.new.msg}</div><span class="time">10:26 AM</span>
           </div>
         </div>`
+            }
         }
     )
     .subscribe();
