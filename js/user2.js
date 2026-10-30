@@ -98,6 +98,18 @@ document.addEventListener("keydown", (event) => {
 });
 
 
+const scroller = ()=>{
+
+    
+
+        window.scrollTo({
+            top: chat.scrollHeight,
+            behavior: 'smooth'
+        })
+    }
+
+
+
 const previous_msg = async () => {
 
     const { data, error } = await supabase
@@ -136,6 +148,7 @@ const previous_msg = async () => {
             }
         }
 
+        scroller();
     }
 
 
@@ -143,11 +156,3 @@ const previous_msg = async () => {
 
 previous_msg();
 
-
-window.onload = () => {
-    let composer_area = document.querySelector(".composer-area");
-    window.scrollTo({
-        top: composer_area.scrollHeight,
-        behavior: 'smooth'
-    })
-}
