@@ -96,3 +96,13 @@ document.addEventListener("keydown", (event) => {
         message_sender();
     }
 });
+
+
+
+window.onload = ()=>{
+    let composer_area = document.querySelector(".composer-area");
+    window.scrollTo({
+        top: composer_area.scrollHeight,
+        behavior: 'smooth'
+    })
+}
