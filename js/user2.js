@@ -36,6 +36,8 @@ const channel = supabase
                 </div>
                 </div>`
             }
+            // It bring you on last msg
+            chat.scrollTop = chat.scrollHeight;
         }
     )
     .subscribe();
@@ -130,7 +132,7 @@ const previous_msg = async () => {
           </div>
         </div>`
             }
-            else if(element.receiver_id === "mira"){
+            else if(element.sender_id === "mira"){
                 chat.innerHTML += `<div class="message-row received">
           <div class="mini-avatar">A</div>
           <div class="bubble-wrap">

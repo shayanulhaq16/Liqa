@@ -21,7 +21,7 @@ const channel = supabase
         },
         (payload) => {
             if (payload.new.sender_id === "ayaan") {
-                 const date = new Date(payload.new.created_at);
+                const date = new Date(payload.new.created_at);
                 const time = date.toLocaleTimeString("en-PK", {
                     hour: "numeric",
                     minute: "2-digit",
@@ -35,7 +35,11 @@ const channel = supabase
             <div class="bubble">${payload.new.msg}</div><span class="time">${time}</span>
           </div>
         </div>`
-            }
+
+
+    }
+    // It bring you on last msg
+    chat.scrollTop = chat.scrollHeight;
         }
     )
     .subscribe();
@@ -137,7 +141,7 @@ const previous_msg = async () => {
           </div>
         </div>`
             }
-            else if(element.sender_id === "ayaan") {
+            else if (element.sender_id === "ayaan") {
                 chat.innerHTML += `<div class="message-row received">
           <div class="mini-avatar">A</div>
           <div class="bubble-wrap">
