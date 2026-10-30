@@ -20,7 +20,7 @@ const channel = supabase
             table: 'messages'
         },
         (payload) => {
-            if (payload.new.sender_id === "user2") {
+            if (payload.new.sender_id === "ayaan") {
                  const date = new Date(payload.new.created_at);
                 const time = date.toLocaleTimeString("en-PK", {
                     hour: "numeric",
@@ -65,8 +65,8 @@ const message_sender = async () => {
 
 
         let obj = {
-            sender_id: "user1",
-            receiver_id: "user2",
+            sender_id: "mira",
+            receiver_id: "ayaan",
             msg: message.value.trim()
         }
 
@@ -129,7 +129,7 @@ const previous_msg = async () => {
                 hour12: true
             });
 
-            if (element.sender_id === "user1") {
+            if (element.sender_id === "mira") {
                 chat.innerHTML += `<div class="message-row sent">
           <div class="bubble-wrap">
             <div class="bubble">${element.msg}</div><span class="time">${time} <b
@@ -137,7 +137,7 @@ const previous_msg = async () => {
           </div>
         </div>`
             }
-            else {
+            else if(element.sender_id === "ayaan") {
                 chat.innerHTML += `<div class="message-row received">
           <div class="mini-avatar">A</div>
           <div class="bubble-wrap">
