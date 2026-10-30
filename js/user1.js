@@ -105,15 +105,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 
-const scroller = ()=>{
 
-    
-        window.scrollTo({
-            top: chat.scrollHeight,
-            behavior: 'smooth'
-        })
-    
-}
 
 
 const previous_msg = async () => {
@@ -125,7 +117,8 @@ const previous_msg = async () => {
 
     if (!error) {
 
-        chat.innerHTML = "";
+        chat.innerHTML = `<div class="date-pill">TODAY</div>
+        <div class="encryption-note">🔒 Messages are private between you and Ayaan.</div>`;
         for (const element of data) {
 
 
@@ -154,7 +147,8 @@ const previous_msg = async () => {
             }
         }
 
-        scroller()
+        // It bring you on last msg
+        chat.scrollTop = chat.scrollHeight;
     }
 
 
