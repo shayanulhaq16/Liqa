@@ -331,7 +331,6 @@ a {
     align-items: stretch;
     gap: 17px;
     min-height: 0;
-    min-height: 450px;
     padding: 26px clamp(20px, 5vw, 74px);
     overflow: auto;
     background-color: #efeae2;

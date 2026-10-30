@@ -16,10 +16,11 @@
 body {
     margin: 0;
     min-height: 100vh;
-    padding: 22px;
+    padding: 0px;
     background: #dce5df;
     color: var(--ink);
-    font-family: Inter, Arial, sans-serif
+    font-family: Inter, Arial, sans-serif;
+     overflow: hidden;
 }
 
 button,
@@ -37,6 +38,7 @@ a {
 }
 
 .app {
+    height: 100vh;
     display: grid;
     grid-template-columns: 350px minmax(0, 1fr);
     max-width: 1420px;
@@ -46,7 +48,7 @@ a {
     background: #fff;
     border: 1px solid #cddbd2;
     border-radius: 16px;
-    box-shadow: 0 18px 55px #19392e20
+    box-shadow: 0 18px 55px #19392e20;
 }
 
 .sidebar {
@@ -54,7 +56,9 @@ a {
     flex-direction: column;
     min-width: 0;
     background: #fff;
-    border-right: 1px solid var(--line)
+    border-right: 1px solid var(--line);
+    height: 100%;
+    overflow: hidden;
 }
 
 .side-top {
@@ -131,7 +135,9 @@ a {
 }
 
 .chat-list {
-    flex: 1
+    flex: 1;
+       min-height: 0;
+    overflow-y: auto;
 }
 
 .chat-item {
@@ -245,10 +251,14 @@ a {
 }
 
 .conversation {
+     height: 100%;
+    min-height: 0;
+    flex: 1;
     display: flex;
     flex-direction: column;
     min-width: 0;
-    background: var(--cream)
+    background: var(--cream);
+    overflow: hidden;
 }
 
 .chat-header {
@@ -258,7 +268,8 @@ a {
     gap: 14px;
     padding: 16px 24px;
     background: #f7f9f8;
-    border-bottom: 1px solid #dce5df
+    border-bottom: 1px solid #dce5df;
+    flex-shrink: 0;
 }
 
 .contact-heading {
@@ -318,7 +329,7 @@ a {
     flex-direction: column;
     align-items: stretch;
     gap: 17px;
-    min-height: 450px;
+    min-height: 0;
     padding: 26px clamp(20px, 5vw, 74px);
     overflow: auto;
     background-color: #efeae2;
@@ -417,7 +428,8 @@ a {
 .composer-area {
     padding: 16px 22px 12px;
     background: #f7f9f8;
-    border-top: 1px solid #dce5df
+    border-top: 1px solid #dce5df;
+    flex-shrink: 0;
 }
 
 .composer {
