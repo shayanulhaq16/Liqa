@@ -98,8 +98,53 @@ document.addEventListener("keydown", (event) => {
 });
 
 
+const previous_msg = async () => {
 
-window.onload = ()=>{
+    const { data, error } = await supabase
+        .from('messages')
+        .select()
+
+
+    if (!error) {
+
+        chat.innerHTML = "";
+        for (const element of data) {
+
+
+            const date = new Date(element.created_at);
+            const time = date.toLocaleTimeString("en-PK", {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            });
+
+            if (element.sender_id === "user2") {
+                chat.innerHTML += `<div class="message-row sent">
+          <div class="bubble-wrap">
+            <div class="bubble">${element.msg}</div><span class="time">${time} <b
+                class="ticks">✓✓</b></span>
+          </div>
+        </div>`
+            }
+            else {
+                chat.innerHTML += `<div class="message-row received">
+          <div class="mini-avatar">A</div>
+          <div class="bubble-wrap">
+            <div class="bubble">${element.msg}</div><span class="time">${time}</span>
+          </div>
+        </div>`
+            }
+        }
+
+    }
+
+
+}
+
+previous_msg();
+
+
+window.onload = () => {
     let composer_area = document.querySelector(".composer-area");
     window.scrollTo({
         top: composer_area.scrollHeight,
